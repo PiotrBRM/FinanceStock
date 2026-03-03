@@ -347,13 +347,12 @@ export default function StockConsolidator() {
           "AMPED Avg/Week": ampedAvgWeek,
           "Proper Stock": stockOnHand,
           "AMPED Stock": ampedStock,
-          "Proper Stock Difference": stockOnHand - ampedStock,
           "Proper Months to Sell Out": properMonths !== null ? properMonths : "N/A",
           "AMPED Months to Sell Out": ampedMonths !== null ? ampedMonths : "N/A",
         });
       }
 
-      consolidated.sort((a, b) => (b["Proper Stock Difference"] || 0) - (a["Proper Stock Difference"] || 0));
+      consolidated.sort((a, b) => (b["Proper Stock"] || 0) - (a["Proper Stock"] || 0));
       setResult({
         data: consolidated,
         count: consolidated.length,
